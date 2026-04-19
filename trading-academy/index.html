@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Academy — Candlestick Mastery</title>
+  <meta name="description" content="Belajar candlestick chart pattern interaktif, visual, dengan quiz dan contoh chart nyata.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='40' y='10' width='20' height='60' fill='%2326a69a'/%3E%3Cline x1='50' y1='5' x2='50' y2='10' stroke='%2326a69a' stroke-width='2'/%3E%3Cline x1='50' y1='70' x2='50' y2='95' stroke='%2326a69a' stroke-width='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <main class="main-content">
+      <header class="header">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">☰</button>
+          <nav class="header-breadcrumb" id="breadcrumb"></nav>
+        </div>
+        <div class="header-actions">
+          <div class="streak-badge" title="Daily streak">🔥 <span id="streak-display">0</span> hari</div>
+        </div>
+      </header>
+
+      <div class="page" id="page-content">
+        <div style="text-align:center;padding:80px 20px;color:var(--text-muted)">
+          <div style="font-size:42px;margin-bottom:12px">📊</div>
+          <div>Loading Trading Academy...</div>
+        </div>
+      </div>
+
+      <footer style="padding:20px 32px;text-align:center;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px">
+        <div>Trading Academy · Candlestick Mastery</div>
+        <div style="margin-top:4px">Sumber: "Technical Analysis for Mega Profit" (Edianto Ong), Steve Nison Japanese Candlestick Charting Techniques, + pengalaman praktis trading</div>
+        <div style="margin-top:8px;opacity:0.6">⚠️ Educational content only. Trading carries risk. Always practice money management.</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JS — core -->
+  <script src="js/candlestick.js"></script>
+  <script src="js/patterns.js"></script>
+  <script src="js/curriculum.js"></script>
+  <script src="js/quizzes.js"></script>
+
+  <!-- JS — extended modules (must load before app.js) -->
+  <script src="js/chart-patterns.js"></script>
+  <script src="js/indicators.js"></script>
+  <script src="js/sr-fibonacci.js"></script>
+  <script src="js/pattern-hunter.js"></script>
+  <script src="js/paper-trade.js"></script>
+
+  <!-- JS — app bootstrap -->
+  <script src="js/app.js"></script>
+
+  <!-- Update streak display -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const p = Progress.load();
+      document.getElementById('streak-display').textContent = p.streak || 0;
+    });
+  </script>
+</body>
+</html>
